@@ -4,6 +4,6 @@ class TransactionController < ApplicationController
         payer_points = [1..10000].sample
         payer_timestamp = DateTime.now()
 
-        render :json => Transaction.create(payer: payer_name, points: payer_points, timestamp: payer_timestamp)
+        render :json => Transaction.create(payer: payer_name, points: payer_points, timestamp: payer_timestamp), :except => [:id, :created_at, :updated_at]
     end
 end
