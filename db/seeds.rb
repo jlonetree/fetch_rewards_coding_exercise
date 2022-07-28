@@ -19,4 +19,4 @@ Transaction.create([
     { payer: Payer.first[:payer], points: 300, timestamp: "2020-10-31T10:00:00Z" }
 ])
 
-User.create(points: 5000)
+User.create({points: 5000})
