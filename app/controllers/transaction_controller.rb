@@ -1,11 +1,9 @@
 class TransactionController < ApplicationController
     def add_transaction
-        Transaction.create(transaction_params)
-    end
+        payer_name = ["DANNON", "UNILEVER" ,"MILLER COORS"].sample
+        payer_points = [1..10000].sample
+        payer_timestamp = DateTime.now()
 
-    private
-
-    def transaction_params
-       params.require(:transaction).permit(:payer, :points, :timestamp) 
+        render :json => Transaction.create(payer: payer_name, points: payer_points, timestamp: payer_timestamp)
     end
 end
